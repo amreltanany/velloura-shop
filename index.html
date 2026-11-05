@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VÈLÔURÁ — Bakery & Pastry Shop</title>
+<meta name="description" content="Freshly baked goods every day. Our bakery is built on the joy of sharing freshly baked food: every loaf, cake and pastry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Erica+One&family=Geist:wght@400;600&family=Mouse+Memoirs&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow:#FCEDB4; --brown:#4A2E17; --link:#0000EE; --red:#CC4A3B; --cream:#FFF0E0;
+  --s1:9px;--s2:10px;--s3:12px;--s4:16px;--s6:20px;--s7:24px;--s9:30px;--s10:40px;--s11:48px;--s13:80px;--s14:109px;
+  --r-md:48px; --r-lg:100px; --r-sm:0 0 64px 64px;
+  --erica:'Erica One','Times New Roman',sans-serif; --mouse:'Mouse Memoirs',sans-serif; --body:'Geist',sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1); --spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{box-sizing:border-box;margin:0}
+body{font:400 18px/1.5 var(--body);color:var(--brown);background:repeating-linear-gradient(90deg,var(--brown) 0 44px,#523318 44px 88px);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:12px}
+.dark :focus-visible,.red :focus-visible{outline-color:var(--yellow)}
+.page{margin:0 var(--s4);background:var(--cream)}
+.card-sec{background:var(--cream);border-radius:var(--r-md);position:relative;overflow:hidden}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--s7)}
+section{padding:var(--s14) 0}
+.mm{font-family:var(--mouse);font-weight:400;text-transform:uppercase;line-height:.88;letter-spacing:.005em}
+h2.mm{font-size:clamp(52px,7vw,100px)}
+.tag{display:inline-block;font:400 22px/1 var(--mouse);text-transform:lowercase;background:var(--red);color:var(--cream);padding:6px 16px 4px;border-radius:var(--r-lg);transform:rotate(-3deg);margin-bottom:var(--s6)}
+.btn{display:inline-flex;align-items:center;gap:var(--s3);font:400 17px/1 var(--body);font-weight:600;text-transform:uppercase;letter-spacing:.02em;padding:var(--s4) var(--s7);border-radius:var(--r-lg);background:var(--brown);color:var(--cream);transition:transform .25s var(--spring),background .2s,color .2s}
+.btn:hover{transform:translateY(-3px) scale(1.04);background:var(--red)}
+.btn:active{transform:scale(.96)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn .plus{font-size:22px;line-height:.8;color:var(--yellow)}
+.btn.red{background:var(--red)}.btn.red:hover{background:var(--brown)}
+.btn.light{background:var(--cream);color:var(--brown)}.btn.light:hover{background:var(--yellow)}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:transform .4s var(--ease)}
+header.hide{transform:translateY(-110%)}
+header nav{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:var(--s7) var(--s4);color:var(--cream)}
+header a{font:400 16px var(--body);font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+header a:hover{color:var(--yellow)}
+header .logo{font:400 30px/1 var(--erica);letter-spacing:-.01em}
+@media(max-width:560px){header nav{padding:var(--s4)}header a{font-size:13px}header .logo{font-size:22px}}
+
+/* hero */
+.hero{margin-top:96px;padding:0;border-radius:var(--r-md);text-align:center;min-height:calc(100svh - 96px);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:var(--s13);overflow:hidden;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:20px;background:radial-gradient(circle at 50% 100%,var(--brown) 0 11px,transparent 12px) 0 0/44px 20px repeat-x;opacity:.0}
+.pin{width:100px;margin:0 auto var(--s4);transform:rotate(-4deg)}
+.hero h1{font-size:clamp(60px,10.5vw,150px);position:relative;z-index:2;max-width:1100px}
+.hero h1 .r{color:var(--red)}
+.hero .sticker{position:absolute;right:-.9em;top:.65em;font:400 .32em/.85 var(--mouse);text-transform:none;background:var(--yellow);color:var(--brown);padding:.18em .45em;border-radius:12px;transform:rotate(-10deg);box-shadow:0 8px 14px -8px rgba(74,46,23,.5);text-align:center}
+.hero .pastry{width:min(52vw,560px);margin:-24px auto 0;position:relative;z-index:1;filter:drop-shadow(0 30px 24px rgba(74,46,23,.35));will-change:transform}
+.hero .cap{position:absolute;left:var(--s10);bottom:var(--s10);max-width:260px;text-align:left;font-size:15px;z-index:3}
+.hero .right{position:absolute;right:var(--s10);bottom:var(--s10);display:grid;gap:var(--s4);justify-items:end;text-align:right;z-index:3}
+.hero .right span{font:400 13px var(--body);font-weight:600;letter-spacing:.14em}
+@media(max-width:760px){.hero .sticker{right:-.2em;top:auto;bottom:-.7em}.hero .cap{left:var(--s7);right:var(--s7);bottom:84px;max-width:none;text-align:center}.hero .right{left:var(--s7);right:var(--s7);justify-items:center;bottom:var(--s7)}.hero .right span{display:none}.hero .pastry{width:80vw}.hero{padding-bottom:200px}}
+
+/* featured */
+.cats{display:flex;justify-content:center;gap:var(--s7);margin:var(--s10) 0 var(--s11);flex-wrap:wrap}
+.cat{display:grid;justify-items:center;gap:var(--s2);font:400 22px/1 var(--mouse);letter-spacing:.06em;color:var(--brown);opacity:.7;transition:opacity .2s,transform .3s var(--spring)}
+.cat .ic{width:72px;height:72px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;box-shadow:inset 0 0 0 3px var(--brown);transition:background .2s}
+.cat .ic img{width:48px;height:48px;object-fit:contain}
+.cat:hover{opacity:1;transform:translateY(-4px)}
+.cat[aria-selected=true]{opacity:1;color:var(--red)}.cat[aria-selected=true] .ic{background:var(--red);box-shadow:inset 0 0 0 3px var(--brown)}
+.cat[aria-selected=true] .ic img{filter:brightness(2)}
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s7)}
+.prod{background:#F8E3CC;border-radius:var(--r-md);padding:var(--s7);display:flex;flex-direction:column;transition:transform .4s var(--spring)}
+.prod:hover{transform:translateY(-8px) rotate(-.8deg)}
+.prod .im{aspect-ratio:1.1;display:grid;place-items:center;margin-bottom:var(--s7)}
+.prod .im img{max-height:100%;object-fit:contain;filter:drop-shadow(0 20px 14px rgba(74,46,23,.28));transition:transform .5s var(--spring)}
+.prod:hover .im img{transform:scale(1.08) rotate(-4deg)}
+.prod small{font-size:14px;opacity:.8}
+.prod h3{font:600 24px/1.2 var(--body);margin:2px 0 var(--s4)}
+.prod .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.prod .price{font:600 28px var(--body)}
+.center{text-align:center}
+@media(max-width:900px){.prods{grid-template-columns:1fr 1fr}}@media(max-width:560px){.prods{grid-template-columns:1fr}}
+
+/* belief */
+.red{background:repeating-linear-gradient(90deg,var(--red) 0 60px,#c24433 60px 120px);color:var(--cream);border-radius:var(--r-md);overflow:hidden;position:relative}
+.belief .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--s11);align-items:center}
+.belief h2{font-size:clamp(46px,6vw,84px);text-transform:none;line-height:.92}
+.belief .photo{position:relative}
+.belief .photo .man{border-radius:var(--r-md);width:100%;aspect-ratio:1.1;object-fit:cover}
+.belief .photo .berry{position:absolute;left:-8%;bottom:-12%;width:56%;filter:drop-shadow(0 20px 16px rgba(74,46,23,.45))}
+.belief p{max-width:420px;margin-top:var(--s7)}
+.belief .ghost{position:absolute;right:-60px;bottom:-60px;width:320px;opacity:.15;filter:invert(1)}
+@media(max-width:820px){.belief .grid{grid-template-columns:1fr}}
+
+/* offers */
+.offers{display:grid;grid-template-columns:1fr 1fr;gap:var(--s7);margin-top:var(--s7)}
+.offer{border-radius:var(--r-md);min-height:560px;padding:var(--s10);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;background-size:cover;background-position:center}
+.offer .badge{position:absolute;left:var(--s7);top:var(--s7);transform:rotate(-6deg)}
+.offer .badge .tag{margin:0}
+.offer h3{font-size:clamp(34px,4vw,54px);margin-top:var(--s11);text-shadow:0 3px 0 rgba(255,240,224,.5)}
+.offer.l{background-image:url(https://framerusercontent.com/images/ZLwEyEdQ211t4fz2e8TfBTgFYZw.png?scale-down-to=1024);color:var(--brown)}
+.offer.r{background-image:url(https://framerusercontent.com/images/q6dzrM0b9JUJV287tESVuHj8.png?scale-down-to=1024);color:var(--cream)}
+.offer.r h3{text-shadow:0 3px 0 rgba(74,46,23,.55)}
+.offer img{width:min(62%,300px);filter:drop-shadow(0 26px 16px rgba(74,46,23,.4));margin:var(--s7) 0;transition:transform .5s var(--spring)}
+.offer:hover img{transform:scale(1.08) rotate(5deg)}
+@media(max-width:820px){.offers{grid-template-columns:1fr}}
+
+/* why */
+.why .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s11);align-items:center}
+.why h2{text-transform:none;font-size:clamp(46px,6vw,84px)}
+.items{margin-top:var(--s10);border-top:2px solid var(--brown)}
+.items details{border-bottom:2px solid var(--brown);padding:var(--s4) 0}
+.items summary{list-style:none;cursor:pointer;font:600 20px var(--body);display:flex;justify-content:space-between;align-items:center}
+.items summary::-webkit-details-marker{display:none}
+.items summary::after{content:"+";font:400 30px/1 var(--mouse);transition:transform .3s var(--spring)}
+.items details[open] summary::after{transform:rotate(45deg)}
+.items p{padding-top:var(--s3);max-width:420px;font-size:16px}
+.blobwrap{position:relative;display:grid;place-items:center}
+.blobwrap::before{content:"";position:absolute;inset:6%;background:var(--yellow);border-radius:55% 45% 52% 48%/48% 55% 45% 52%;animation:wob 10s ease-in-out infinite}
+@keyframes wob{50%{border-radius:45% 55% 48% 52%/55% 45% 52% 48%;transform:rotate(8deg)}}
+.blobwrap img{position:relative;width:78%}
+@media(max-width:820px){.why .grid{grid-template-columns:1fr}}
+
+/* marquee loaf */
+.big{padding:0;overflow:hidden;position:relative;margin:var(--s7) 0}
+.big .t{white-space:nowrap;font:400 clamp(140px,26vw,380px)/.9 var(--mouse);text-transform:uppercase;color:var(--red);display:inline-block;animation:mq 26s linear infinite;padding:var(--s10) 0}
+@keyframes mq{to{transform:translateX(-50%)}}
+.big .loaf{position:absolute;left:50%;top:50%;width:min(44vw,520px);transform:translate(-50%,-50%) rotate(-6deg);filter:drop-shadow(0 30px 22px rgba(74,46,23,.4));z-index:2}
+
+/* visit */
+.visit{padding:0;margin-top:var(--s7);min-height:640px;border-radius:var(--r-md);overflow:hidden;display:grid;place-items:center;position:relative;background:var(--brown)}
+.visit>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.receipt{position:relative;z-index:2;width:min(420px,88%);margin:var(--s13) 0;background:#FBF5EA;padding:var(--s10) var(--s7) 64px;text-align:center;transform:rotate(-2deg);box-shadow:0 30px 40px -20px rgba(0,0,0,.6);-webkit-mask:radial-gradient(circle at 10px 100%,transparent 8px,#000 9px) 0 100%/20px 20px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 10px) no-repeat;mask:radial-gradient(circle at 10px 100%,transparent 8px,#000 9px) 0 100%/20px 20px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 10px) no-repeat}
+.receipt .tape{position:absolute;top:-26px;left:50%;transform:translateX(-50%) rotate(3deg);width:140px;opacity:.9}
+.receipt h4{font:400 15px var(--body);font-weight:600;margin-bottom:var(--s3)}
+.receipt .st{font:400 46px/1 var(--mouse);text-transform:uppercase;color:var(--red);margin-bottom:var(--s4)}
+.receipt .hrs{font:400 14px var(--body);margin-bottom:var(--s7)}
+.receipt .hrs b{display:block;font-weight:600}
+.receipt .loc{display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s4);text-align:left;font-size:13px;padding:var(--s4) 0;border-top:1px dashed var(--brown)}
+.receipt .loc b{font-weight:600;letter-spacing:.1em}
+.receipt .lg{font:400 38px/1 var(--erica);color:var(--red);margin-top:var(--s4)}
+
+/* testimonial */
+.testi{display:grid;grid-template-columns:1fr 1fr;gap:var(--s7);margin-top:var(--s7)}
+.testi .ph{border-radius:var(--r-md);overflow:hidden;min-height:480px}
+.testi .ph img{width:100%;height:100%;object-fit:cover}
+.tcard{background:var(--yellow);border-radius:var(--r-md);padding:var(--s11);display:flex;flex-direction:column;justify-content:space-between;gap:var(--s7);position:relative}
+.tcard .q{font:400 40px/1 var(--erica);color:var(--red)}
+.tcard blockquote{font:400 clamp(24px,2.6vw,36px)/1.15 var(--mouse);text-transform:none;letter-spacing:.01em}
+.stars{color:var(--red);letter-spacing:4px;font-size:18px}
+.who{display:flex;align-items:center;gap:var(--s4);justify-content:space-between;flex-wrap:wrap}
+.who .p{display:flex;gap:var(--s3);align-items:center}
+.who img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.who small{display:block;font-size:13px;opacity:.7}
+.arrows{display:flex;gap:var(--s2)}
+.arrows button{width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--brown);text-align:center;font:600 18px var(--body);transition:background .2s,color .2s}
+.arrows button:hover{background:var(--brown);color:var(--cream)}
+@media(max-width:820px){.testi{grid-template-columns:1fr}.tcard{padding:var(--s7)}}
+
+/* blog */
+.blog h2{text-transform:uppercase}
+.posts{margin-top:var(--s11)}
+.post{display:grid;grid-template-columns:96px 1fr auto;gap:var(--s7);align-items:center;padding:var(--s7) 0;border-top:2px solid var(--brown);transition:padding .3s var(--ease)}
+.post:last-child{border-bottom:2px solid var(--brown)}
+.post:hover{padding-left:var(--s4)}
+.post img{width:96px;height:96px;object-fit:cover;border-radius:24px}
+.post small{font:600 12px var(--body);letter-spacing:.12em;color:var(--red)}
+.post h3{font:600 clamp(20px,2.4vw,28px)/1.2 var(--body)}
+.post .ar{width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--brown);display:grid;place-items:center;font-size:20px;transition:background .2s,color .2s,transform .3s var(--spring)}
+.post:hover .ar{background:var(--brown);color:var(--cream);transform:rotate(-45deg)}
+.blog .top{display:flex;justify-content:space-between;align-items:end;gap:var(--s7);flex-wrap:wrap}
+
+/* faq */
+.faq .grid{display:grid;grid-template-columns:1fr 1.3fr;gap:var(--s11)}
+.faq h2{margin-bottom:var(--s7)}
+.faq p.lead{max-width:360px;margin-bottom:var(--s7)}
+.q{background:var(--yellow);border-radius:32px;margin-bottom:var(--s3);overflow:hidden}
+.q summary{list-style:none;cursor:pointer;padding:var(--s7);font:600 18px var(--body);display:flex;justify-content:space-between;align-items:center;gap:var(--s4)}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"+";width:36px;height:36px;border-radius:50%;background:var(--brown);color:var(--cream);display:grid;place-items:center;flex:none;font:600 20px var(--body);transition:transform .3s var(--spring)}
+.q[open] summary::after{transform:rotate(45deg)}
+.q p{padding:0 var(--s7) var(--s7);font-size:16px;max-width:560px}
+@media(max-width:820px){.faq .grid{grid-template-columns:1fr}}
+
+/* nearest */
+.near{padding:var(--s13) 0;text-align:center}
+.near h2{font:400 clamp(70px,13vw,190px)/.85 var(--mouse);text-transform:lowercase;color:var(--yellow);margin-bottom:var(--s10)}
+.near .row{display:flex;justify-content:center;align-items:center;gap:var(--s11);flex-wrap:wrap}
+.near .row img{width:clamp(150px,22vw,280px);border-radius:var(--r-md);aspect-ratio:1.1;object-fit:cover;transition:transform .5s var(--spring);box-shadow:0 20px 30px -16px rgba(74,46,23,.6)}
+.near .row img:first-child{transform:rotate(-7deg)}.near .row img:last-child{transform:rotate(6deg)}
+.near .row img:hover{transform:rotate(0) scale(1.06)}
+.near .mid{display:grid;gap:var(--s4);justify-items:center;max-width:300px}
+.near .mid p{font:400 30px/1 var(--mouse);text-transform:uppercase;color:var(--cream)}
+
+/* footer */
+footer{background:var(--brown);color:var(--cream);padding:var(--s14) var(--s7) var(--s7);margin-top:0;position:relative;overflow:hidden}
+.fg{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:var(--s11);align-items:start}
+.fg h4{font:400 28px/1 var(--mouse);text-transform:uppercase;letter-spacing:.04em;margin-bottom:var(--s4);color:var(--yellow)}
+.fg a{display:block;padding:3px 0;opacity:.9}.fg a:hover{color:var(--yellow);opacity:1}
+.sub{display:flex;gap:var(--s2);margin-top:var(--s3)}
+.sub input{flex:1;min-width:0;padding:var(--s4) var(--s6);border-radius:var(--r-lg);border:2px solid var(--cream);background:transparent;color:var(--cream);font:inherit;font-size:15px}
+.sub input::placeholder{color:rgba(255,240,224,.6)}
+.sub button{width:54px;border-radius:50%;background:var(--yellow);color:var(--brown);font:600 20px var(--body);text-align:center;transition:transform .3s var(--spring)}
+.sub button:hover{transform:rotate(-45deg) scale(1.1)}
+.msg{font-size:14px;margin-top:var(--s3);min-height:22px}
+.fb{max-width:1240px;margin:var(--s13) auto var(--s7);font:400 15px var(--body);display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;opacity:.8}
+.wm{font:400 clamp(40px,15vw,260px)/.9 var(--erica);text-align:center;color:var(--yellow);letter-spacing:-.01em;white-space:nowrap;position:relative}
+.wm .seal{position:absolute;left:50%;top:-10%;transform:translateX(-50%);width:clamp(60px,9vw,130px);height:clamp(60px,9vw,130px);border-radius:50%;background:var(--red);display:grid;place-items:center;animation:spin 16s linear infinite;color:var(--cream);font:400 clamp(11px,1.4vw,18px)/1 var(--mouse);text-transform:uppercase;text-align:center;padding:10px;box-shadow:0 0 0 4px var(--brown),0 0 0 6px var(--yellow)}
+@keyframes spin{to{transform:translateX(-50%) rotate(360deg)}}
+@media(max-width:820px){.fg{grid-template-columns:1fr}}
+
+/* bag */
+.bag{position:fixed;right:var(--s7);bottom:var(--s7);z-index:60;background:var(--red);color:var(--cream);padding:14px 22px;border-radius:var(--r-lg);font:600 15px var(--body);box-shadow:0 14px 20px -10px rgba(74,46,23,.7);transform:translateY(160%);transition:transform .5s var(--spring)}
+.bag.show{transform:none}
+.bag:hover{background:var(--brown)}
+[data-r]{will-change:transform,opacity}
+</style>
+</head>
+<body>
+<header id="hd"><nav aria-label="Main"><a href="#about">About</a><a href="#menu">Menu</a><a class="logo" href="#top" aria-label="VÈLÔURÁ home">VÈLÔURÁ</a><a href="#blog">Blog</a><a href="#contact">Contact</a></nav></header>
+<button class="bag" id="bag" aria-live="polite"></button>
+
+<div class="page" id="top">
+<main>
+<!-- HERO -->
+<section class="card-sec hero" style="padding-top:var(--s13);padding-bottom:var(--s13)">
+  <img class="pin" data-src="xboMoKJV1u8wMGi4fCmvu2VJU.png" alt="" aria-hidden="true">
+  <h1 class="mm"><span class="r">Freshly baked</span> goods<br>every day<span class="sticker" aria-hidden="true">homemade<br>bakery</span></h1>
+  <img class="pastry" id="pastry" data-src="cwlS5t4QX5H9hmrsqJXng8xFSI.png" alt="A flaky berry pastry topped with fresh blackberries and a raspberry">
+  <p class="cap">Our bakery is built on the joy of sharing freshly baked food: every cake, loaf and pastry.</p>
+  <div class="right"><span>FRESH · TASTY · SWEET</span><a class="btn" href="#menu">Shop now <span class="plus">→</span></a></div>
+</section>
+
+<!-- FEATURED -->
+<section id="menu">
+  <div class="wrap center">
+    <span class="tag" data-r>featured</span>
+    <h2 class="mm" data-r>A little taste of<br>everything we bake</h2>
+    <div class="cats" role="tablist" aria-label="Menu categories" id="cats" data-r></div>
+    <div class="prods" id="prods" style="text-align:left"></div>
+    <p style="margin-top:var(--s11)" data-r><a class="btn" href="#menu">View all menu <span class="plus">→</span></a></p>
+  </div>
+</section>
+
+<!-- BELIEF -->
+<section class="red belief" id="about">
+  <img class="ghost" data-src="gxVEBvdZErwXb5NcjeQWalvnwg.svg" alt="" aria-hidden="true">
+  <div class="wrap grid">
+    <div data-r>
+      <h2 class="mm">We believe baking is about bringing people together with every loaf we make.</h2>
+      <p>VÈLÔURÁ began with a simple love for honest baking and beautiful ingredients. Every loaf, cake, and pastry is carefully made in our kitchen, bringing a little joy to your everyday moments.</p>
+    </div>
+    <div class="photo" data-r>
+      <img class="man" data-src="QKmkUU9NAfbzHWFeBisqmgrCQQQ.png" alt="The baker, arms crossed in an apron, in the bakery">
+      <img class="berry" data-src="CBhkGfSeFT2yXz5ARE0uDmCWgSA.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<div class="offers wrapo">
+  <article class="offer l" data-r>
+    <div class="badge"><span class="tag">limited offer</span></div>
+    <h3 class="mm">UPTO 20% OFF<br>MOST FAVORITES LOAF</h3>
+    <img data-src="03dSJxxfwdpIx0BgeY9crZOZa0.png" alt="A seeded loaf">
+    <a class="btn" href="#menu">Shop now <span class="plus">→</span></a>
+  </article>
+  <article class="offer r" data-r>
+    <div class="badge"><span class="tag">new arrival</span></div>
+    <h3 class="mm">UPTO 20% OFF<br>MOST FAVORITES LOAF</h3>
+    <img data-src="1fbSHD8nlksrkmZdTNBlICeIxoQ.png" alt="A blueberry cheesecake">
+    <a class="btn light" href="#menu">Shop now <span class="plus" style="color:var(--red)">→</span></a>
+  </article>
+</div>
+
+<!-- WHY -->
+<section class="why">
+  <div class="wrap grid">
+    <div>
+      <span class="tag" data-r>why us</span>
+      <h2 class="mm" data-r>Freshly made with care thoughtfully baked for everyday moments</h2>
+      <div class="items" data-r>
+        <details open><summary>Made Fresh Daily</summary><p>All goods is baked fresh every morning, so every bite tastes its best.</p></details>
+        <details><summary>Quality Ingredients</summary><p>Honest flour, real butter and seasonal fruit. Nothing we would not eat ourselves.</p></details>
+        <details><summary>Crafted By Hand</summary><p>Shaped, folded and finished by our bakers, one tray at a time.</p></details>
+        <details><summary>Made To Share</summary><p>Big loaves, generous boxes and cakes that bring the table together.</p></details>
+      </div>
+    </div>
+    <div class="blobwrap" data-r><img data-src="lNSJ1312r1zWIoj9K0tDvzxazkM.png" alt="Smiling baker in an apron"></div>
+  </div>
+</section>
+
+<!-- BIG MARQUEE -->
+<div class="big" aria-hidden="true">
+  <div class="t" id="bigt"></div>
+  <img class="loaf" id="loaf" data-src="9e7T1WE9odzdEEmaNLrrJYBj5U.png" alt="">
+</div>
+
+<!-- VISIT -->
+<section class="visit" id="contact">
+  <img class="bg" data-src="DhmLe8PJ9802gKzVyvI3optnUic.png" alt="" aria-hidden="true">
+  <div class="receipt" data-r>
+    <img class="tape" data-src="XkZQ5nVriQoxas5MyOYlCfcGDDg.png" alt="" aria-hidden="true">
+    <h4>We are waiting for your visit</h4>
+    <div class="st">Montréal Store</div>
+    <div class="hrs"><b>Monday - Friday</b>7.30AM - 5.30PM</div>
+    <div class="loc"><b>MONTRÉAL</b><span>428 Rue Saint-Paul Ouest,<br>Montréal, QC H2Y 2A6</span><b>TORONTO</b><span>315 Queen Street West,<br>Toronto, ON M5V 2A4</span></div>
+    <div class="lg">VÈLÔURÁ</div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="testi">
+  <div class="ph" data-r><img data-src="nUObzvBlzRS6BPUnholwu8C5Xo.png" alt="A customer enjoying a croissant"></div>
+  <div class="tcard" data-r>
+    <span class="q" aria-hidden="true">“</span>
+    <div><span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+    <blockquote id="quote" aria-live="polite"></blockquote></div>
+    <div class="who"><div class="p"><img id="av" data-src="aLbHFHYwPM0UdYGNJ25BoV1sA.png" alt=""><div><b id="nm"></b><small id="lc"></small></div></div>
+      <div class="arrows"><button id="pv" aria-label="Previous review">‹</button><button id="nx" aria-label="Next review">›</button></div></div>
+  </div>
+</div>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="wrap">
+    <div class="top"><div><span class="tag" data-r>blog</span><h2 class="mm" data-r>Stories, recipes &amp;<br>inspiration from our oven</h2></div><a class="btn" href="#blog" data-r>View all <span class="plus">→</span></a></div>
+    <div class="posts" id="posts"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq card-sec" style="margin-top:0">
+  <div class="wrap grid">
+    <div>
+      <span class="tag" data-r>faqs</span>
+      <h2 class="mm" data-r>Frequently<br>asked questions</h2>
+      <p class="lead" data-r>Everything you need to know about VÈLÔURÁ, from our bakes and menu to ordering, locations, and everyday visits.</p>
+      <a class="btn" href="#menu" data-r>Shop now <span class="plus">→</span></a>
+    </div>
+    <div data-r>
+      <details class="q" open><summary>What kind of bread does VÈLÔURÁ bake?</summary><p>We bake a selection of sourdough, whole grain breads, focaccia, and classic artisan loaves, all made fresh in our kitchen.</p></details>
+      <details class="q"><summary>Can I order VÈLÔURÁ bakes for takeaway?</summary><p>Yes. Everything on the menu is available to take away, packed fresh at the counter.</p></details>
+      <details class="q"><summary>Does VÈLÔURÁ offer freshly baked pastries?</summary><p>Every morning. Croissants, danishes and seasonal pastries come out of the oven before we open.</p></details>
+      <details class="q"><summary>Can I pre-order bread or pastries?</summary><p>Yes, pre-order the day before and collect it from either of our stores.</p></details>
+      <details class="q"><summary>Where can I find a VÈLÔURÁ bakery?</summary><p>We have stores in Montréal (428 Rue Saint-Paul Ouest) and Toronto (315 Queen Street West).</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- NEAREST -->
+<section class="red near" style="margin-top:var(--s7)">
+  <h2 data-r>visit the nearest</h2>
+  <div class="row" data-r>
+    <img data-src="tbCi7UsSwO5QBIDd33UK6Iu6Sc.png" alt="A display of fresh pastries">
+    <div class="mid"><p>Let’s Get A Perfect Sourdough Loaf For Today</p><a class="btn light" href="#contact">Find us <span class="plus" style="color:var(--red)">→</span></a></div>
+    <img data-src="DAxiYzvMEw2rj1PIzqY3muQuM2w.png" alt="Coffee and a croissant on a table">
+  </div>
+</section>
+</main>
+</div>
+
+<footer>
+  <div class="fg">
+    <div><h4>Navigation</h4><a href="#about">About</a><a href="#menu">Menu</a><a href="#blog">Blog</a><a href="#contact">Contact</a></div>
+    <div><h4>Subscribe Newsletter</h4><p>Don’t missed news from VÈLÔURÁ</p>
+      <form class="sub" id="su" novalidate><label for="em" style="position:absolute;left:-9999px">Email</label><input id="em" type="email" placeholder="Your email" required autocomplete="email"><button type="submit" aria-label="Subscribe">→</button></form><p class="msg" id="fm" role="status"></p></div>
+    <div id="cont"><h4>Contact</h4><a href="tel:+11234567910">(+1) 1234 567 910</a><a href="mailto:contact@velloura.example">contact@velloura.example</a></div>
+  </div>
+  <div class="fb"><span>© 2026 VÈLÔURÁ.</span><span>• BAKERY STORE •</span></div>
+  <div class="wm" aria-hidden="true">VÈLÔURÁ</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),U=(f,w=1024)=>`https://framerusercontent.com/images/${f}${f.endsWith('.svg')?'':'?scale-down-to='+w}`;
+document.querySelectorAll('img[data-src]').forEach(i=>i.src=U(i.dataset.src));
+
+// menu
+const M={Breads:[['Olive Ciabatta',8.5,'b8mJ1xRVPyWyd3Q3PvVPqjxqz0I.png'],['Walnut Rye Loaf',10,'11s3wMn4WuL7aNb4aW9WffYbKfg.png'],['French Baguette',9,'wFbPzsoyUjK1V1zkWi7PhsRvU8.png']],
+ Pastries:[['Butter Croissant',5.5,'FrbT0RhhSXDEYyZjIvYyg1P4nPg.png'],['Berry Danish',7.5,'cwlS5t4QX5H9hmrsqJXng8xFSI.png'],['Country Sourdough',11,'fSx0RKXDk3BNPdoYWhekCI26T4.png']],
+ Sweets:[['Blueberry Cheesecake',9.5,'owi93DBjyStLZq8NzGu3uc4GM1k.png'],['Berry Danish',7.5,'CBhkGfSeFT2yXz5ARE0uDmCWgSA.png'],['Butter Croissant',5.5,'FrbT0RhhSXDEYyZjIvYyg1P4nPg.png']]};
+const IC={Breads:'11s3wMn4WuL7aNb4aW9WffYbKfg.png',Pastries:'FrbT0RhhSXDEYyZjIvYyg1P4nPg.png',Sweets:'owi93DBjyStLZq8NzGu3uc4GM1k.png'};
+let cat='Breads',bag=0,total=0;
+$('#cats').innerHTML=Object.keys(M).map(c=>`<button class="cat" role="tab" data-c="${c}"><span class="ic"><img src="${U(IC[c],256)}" alt=""></span>${c.toUpperCase()}</button>`).join('');
+function draw(){
+  document.querySelectorAll('.cat').forEach(b=>b.setAttribute('aria-selected',b.dataset.c===cat));
+  $('#prods').innerHTML=M[cat].map((p,i)=>`<article class="prod"><div class="im"><img src="${U(p[2])}" alt="${p[0]}"></div><small>${cat}</small><h3>${p[0]}</h3><div class="row"><span class="price">$${p[1].toFixed(2)}</span><button class="btn" data-i="${i}" aria-label="Add ${p[0]} to your bag">Shop <span class="plus">+</span></button></div></article>`).join('');
+  if(window.gsap)gsap.from('.prod',{y:40,opacity:0,duration:.6,stagger:.08,ease:'expo.out'});
+}
+$('#cats').onclick=e=>{const b=e.target.closest('.cat');if(b){cat=b.dataset.c;draw()}};
+$('#prods').onclick=e=>{const b=e.target.closest('.btn[data-i]');if(!b)return;const p=M[cat][b.dataset.i];bag++;total+=p[1];$('#bag').textContent=`Bag · ${bag} item${bag>1?'s':''} · $${total.toFixed(2)}`;$('#bag').classList.add('show')};
+$('#bag').onclick=()=>{alert('This is a demo — checkout is not connected.')};
+draw();
+
+// big marquee
+$('#bigt').innerHTML=Array(4).fill('FRESHLY BAKED GOODS&nbsp;&nbsp;').join('');
+
+// testimonials
+const T=[['The bread is incredible, crisp on the outside, soft in the middle, and full of flavor. Everything tastes so fresh and thoughtfully made, from the pastries to the sourdough. It’s easily become one of my favorite places','John K.','Montréal, Canada'],['I come for the baguette and leave with a box of pastries every single Saturday. The berry danish is dangerous.','Amélie R.','Toronto, Canada'],['The only bakery where the loaf is still warm when you get it home. Worth the queue, every time.','Marc D.','Montréal, Canada']];
+let ti=0;function showT(){const t=T[ti];$('#quote').textContent='“'+t[0]+'”';$('#nm').textContent=t[1];$('#lc').textContent=t[2];if(window.gsap)gsap.from('#quote',{y:16,opacity:0,duration:.5,ease:'expo.out'})}
+$('#nx').onclick=()=>{ti=(ti+1)%T.length;showT()};$('#pv').onclick=()=>{ti=(ti+T.length-1)%T.length;showT()};showT();
+
+// blog
+$('#posts').innerHTML=[['SEASONAL','APR 15, 2026','What We’re Baking This Season','MoRxe54i2kKrSunb9LeIGF506C0.png'],['BAKING','APR 15, 2026','Why Butter Temperature Changes Everything','5OiXN4QbyLEQKAmAylqQ82FAI.png'],['RECIPES','APR 15, 2026','The Weekend Loaf: A Slow, Simple Ritual','Aq1Ebo5t4cNsOohSFvwdpjD0ts.png']].map(p=>`<a class="post" href="#blog" data-r><img src="${U(p[3],256)}" alt="" loading="lazy"><div><small>${p[0]} · ${p[1]}</small><h3>${p[2]}</h3></div><span class="ar" aria-hidden="true">→</span></a>`).join('');
+
+$('#su').onsubmit=e=>{e.preventDefault();const i=$('#em'),ok=i.value&&i.checkValidity();$('#fm').textContent=ok?'Thank you! You’re on the list.':'Please enter a valid email.';if(ok)i.value=''};
+
+// scroll effects: always on (no reduced-motion gate); content stays visible if CDNs are blocked
+if(window.gsap&&window.ScrollTrigger&&window.Lenis){
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis=new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+  lenis.on('scroll',({direction,scroll})=>{ScrollTrigger.update();$('#hd').classList.toggle('hide',direction===1&&scroll>400)});
+  gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const h=a.getAttribute('href'),t=h==='#top'?0:document.querySelector(h);if(t!==null){e.preventDefault();lenis.scrollTo(t,{offset:-10})}});
+  gsap.from('.hero h1',{y:70,opacity:0,duration:1.2,ease:'expo.out',delay:.1});
+  gsap.from('#pastry',{y:140,scale:.8,opacity:0,duration:1.4,ease:'expo.out',delay:.25});
+  gsap.to('#pastry',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('#loaf',{rotate:10,ease:'none',scrollTrigger:{trigger:'.big',start:'top bottom',end:'bottom top',scrub:true}});
+  gsap.utils.toArray('[data-r]').forEach(el=>gsap.from(el,{y:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
+  gsap.utils.toArray('.photo .man,.testi .ph img,.near .row img').forEach(el=>gsap.fromTo(el,{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:1.4,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'},onComplete:()=>el.style.clipPath='none'}));
+}
+</script>
+</body>
+</html>
